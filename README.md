@@ -23,9 +23,9 @@ const INTENTNAMEIntentHandler = {
         //...
         //Fin Lógica
         //Construyendo diálogo de salida
-        const speakOutput = `SALIDA`;
+        const {dialog} = handlerInput.t('INTENTNAME', {VARIABLE: VARIABLE});
         return handlerInput.responseBuilder
-            .speak(speakOutput)
+            .speak(dialog.Completed)
             .reprompt(handlerInput.t('HELP_MSG'))
             .getResponse();
     }
