@@ -6,6 +6,7 @@
 * El órden de directivas por defecto ([Auto-delegación](#auto-delegación)) es Intent (Confirmation) y Slot (Elicitation, Confirmation y Validation).
 * Si queremos cambiar el orden de required (en [Auto-delegación](#auto-delegación)) intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required.
 * El órden de directivas en [Delegación manual](#delegación-manual) y en la [Delegación combinada](#combinación-de-delegación-manual-y-auto-delegación) dependerá de cómo se organice la lógica en el código.
+* Para entender correctamente [Delegación manual](#delegación-manual) y en la [Delegación combinada](#combinación-de-delegación-manual-y-auto-delegación), ver también [Plantilla promps](#plantilla-promps) 
 
 
 ## **Plantillas RequestIntentHandler**
@@ -120,10 +121,34 @@ const INTENTNAMEIntentHandler = {
     }
 };
 ```
+## Plantilla Promps 
+```
+INTENTNAMEIntent:{
+    dialog: {
+        Completed: 'Mensaje'
+    },
+    promps: {
+        Elicitation: {
+            SLOTNAME: 'Mensaje'
+        },
+        Confirmation: {
+            None: {
+                SLOTNAME: '¿Mensaje {{variable}}?',
+            },
+            Denied:{
+                SLOTNAME: 'Mensaje'
+            }
+        },
+        Validation: {
+            SLOTNAME: 'Mensaje'
+        }
+    }
+}
+```
 
 ## Plantillas Acceso a APIS externas (con AXIOS)
 
-## Método GET
+### Método GET
 
 ```
 getRemoteData (url) {
@@ -149,7 +174,7 @@ getRemoteData (url) {
 },
 ```
 
-## Método POST
+### Método POST
 
 ```
 postRemoteData (url) {
