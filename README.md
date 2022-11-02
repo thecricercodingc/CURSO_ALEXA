@@ -1,4 +1,10 @@
 # CURSO_ALEXA
+**IMPORTANTE**: *Recuerda añadir al final de este js en exports.handler toda RequestIntentHandler que crees.*
+
+**Notas:**
+
+* Si queremos cambiar el orden de required intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required. Esto aplica solo para *Auto-delegación*
+
 **PLANTILLAS**
 
 *Plantilla RequestIntentHandler*
