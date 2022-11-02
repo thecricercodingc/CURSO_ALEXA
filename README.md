@@ -3,7 +3,10 @@
 
 **Notas:**
 
-* Si queremos cambiar el orden de required intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required. Esto aplica solo para [Auto-delegación](#auto-delegación)
+* El órden de directivas por defecto ([Auto-delegación](#auto-delegación)) es Intent (Confirmation) y Slot (Elicitation, Confirmation y Validation).
+* Si queremos cambiar el orden de required (en [Auto-delegación](#auto-delegación)) intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required.
+* El órden de directivas en [Delegación manual](#delegación-manual) y en la [Delegación combinada](#combinación-de-delegación-manual-y-auto-delegación) dependerá de cómo se organice la lógica en el código.
+
 
 ## **Plantillas RequestIntentHandler**
 
