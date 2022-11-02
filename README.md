@@ -3,13 +3,11 @@
 
 **Notas:**
 
-* Si queremos cambiar el orden de required intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required. Esto aplica solo para *Auto-delegación*
+* Si queremos cambiar el orden de required intent slot de una intent, ir al JSON del frontened, luego a dialog.intents y poner en órden que queremos que se muestren los required. Esto aplica solo para [Auto-delegación](#auto-delegación)
 
-**PLANTILLAS**
+## **Plantillas RequestIntentHandler**
 
-*Plantilla RequestIntentHandler*
-
-# Auto-delegación
+### Auto-delegación
 ```
 const INTENTNAMEIntentHandler = {
     canHandle(handlerInput) {
@@ -29,7 +27,7 @@ const INTENTNAMEIntentHandler = {
     }
 };
 ```
-# Delegación manual
+### Delegación manual
 ```
 const INTENTNAMEIntentHandler = {
     canHandle(handlerInput) {
@@ -67,7 +65,7 @@ const INTENTNAMEIntentHandler = {
 ```
 
 
-# Combinación de Delegación manual y Auto-delegación
+### Combinación de Delegación manual y Auto-delegación
 ```
 const INTENTNAMEIntentHandler = {
     canHandle(handlerInput) {
@@ -118,4 +116,58 @@ const INTENTNAMEIntentHandler = {
         }
     }
 };
+```
+
+## Plantillas Acceso a APIS externas (con AXIOS)
+
+## Método GET
+
+```
+getRemoteData (url) {
+  /*Modo de uso
+    const url = "https://anydir.com"
+    let speakOutput = "No se cargaron los datos";
+    await logic.getRemoteData(url)
+        .then((data) => {
+            speakOutput = data.results.toString();
+        })
+  */
+  return new Promise((resolve, reject) => {
+      axios
+      .get(url)
+      .then(res => {
+        console.log(res.data);
+        resolve(res.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }) 
+},
+```
+
+## Método POST
+
+```
+postRemoteData (url) {
+  /*Modo de uso
+    const url = "https://anydir.com"
+    let speakOutput = "No se cargaron los datos";
+    await logic.postRemoteData(url, {param1: valueParam1, param2: valueParam2, ...})
+        .then((data) => {
+            speakOutput = data.results.toString();
+        })
+  */
+  return new Promise((resolve, reject) => {
+      axios
+      .post(url)
+      .then(res => {
+        console.log(res.data);
+        resolve(res.data); 
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }) 
+}
 ```
