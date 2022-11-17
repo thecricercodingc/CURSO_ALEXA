@@ -1,6 +1,8 @@
 # CURSO_ALEXA
 **IMPORTANTE**: *Recuerda añadir al final de este js en exports.handler toda RequestIntentHandler que crees.*
 
+*Recuerda que para usar las directivas de diálogo (Ellicit, confirmation, etc) necesitarás hacer required los slots de la Intent, ver <a>https://github.com/alexa-samples/skill-sample-nodejs-decision-tree/issues/28</a>*
+
 **Notas:**
 
 * El órden de directivas por defecto ([Auto-delegación](#auto-delegación)) es Intent (Confirmation) y Slot (Elicitation, Confirmation y Validation).
